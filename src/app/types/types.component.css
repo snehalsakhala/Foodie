@@ -1,0 +1,19 @@
+.container {
+  float: left;
+}
+
+.image {
+  display: block
+}
+
+.caption {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.columns {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
