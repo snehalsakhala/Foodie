@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ForLocationService } from './for-location.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -9,9 +10,15 @@ import * as $ from 'jquery';
 export class AppComponent implements OnInit {
   title = 'demo';
 
+  constructor(private _location: ForLocationService) { }
+
   ngOnInit() {
+    this.getLocation();
     this.jqueryFunction();
+
   }
+
+
 
   jqueryFunction() {
     $(document).ready(function () {
@@ -36,4 +43,14 @@ export class AppComponent implements OnInit {
 
     });
   }
+
+
+  getLocation() {
+    this._location.getLocationService().then(resp => {
+      console.log(resp.lng);
+      console.log(resp.lat);
+    })
+
+  }
+
 }

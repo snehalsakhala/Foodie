@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TypesComponent } from './types/types.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +23,10 @@ import { TypesComponent } from './types/types.component';
     HomeComponent,
     LoginComponent,
     TypesComponent,
+
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

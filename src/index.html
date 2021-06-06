@@ -6,22 +6,20 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!--signup-->
+  <!--signup
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sign Up Form by Colorlib</title>
 
-  <!-- Font Icon -->
+   Font Icon 
   <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
-  <!-- Main css -->
+   Main css 
   <link rel="stylesheet" href="css/style.css">
-      <!--signup ends-->
+      signup ends-->
 </head>
-<!--signup*****************-->
 
-<!--signup******-->
 <body>
   <app-root></app-root>
   <!-- JS -->
@@ -36,5 +34,72 @@
       document.getElementById("demo2").innerHTML = "Hello Dear Visitor!</br> We are happy that you've chosen our website to learn programming languages. We're sure you'll become one of the best programmers in your country. Good luck to you!";
     }
   </script>
-</body>
+
+
+
+
+<script>
+  (function(){
+var $content = $('.modal_info').detach();
+
+$('.open_button').on('click', function(e){
+  modal.open({
+    content: $content,
+    width: 540,
+    height: 270,
+  });
+  $content.addClass('modal_content');
+  $('.modal, .modal_overlay').addClass('display');
+  $('.open_button').addClass('load');
+});
+}());
+
+var modal = (function(){
+
+var $close = $('<button role="button" class="modal_close" title="Close"><span></span></button>');
+var $content = $('<div class="modal_content"/>');
+var $modal = $('<div class="modal"/>');
+var $window = $(window);
+
+$modal.append($content, $close);
+
+$close.on('click', function(e){
+  $('.modal, .modal_overlay').addClass('conceal');
+  $('.modal, .modal_overlay').removeClass('display');
+  $('.open_button').removeClass('load');
+  e.preventDefault();
+  modal.close();
+});
+
+return {
+  center: function(){
+    var top = Math.max($window.height() - $modal.outerHeight(), 0) / 2;
+    var left = Math.max($window.width() - $modal.outerWidth(), 0) / 2;
+    $modal.css({
+      top: top + $window.scrollTop(),
+      left: left + $window.scrollLeft(),
+    });
+  },
+  open: function(settings){
+    $content.empty().append(settings.content);
+
+    $modal.css({
+      width: settings.width || 'auto',
+      height: settings.height || 'auto'
+    }).appendTo('body');
+
+    modal.center();
+    $(window).on('resize', modal.center);
+  },
+  close: function(){
+    $content.empty();
+    $modal.detach();
+    $(window).off('resize', modal.center);
+  }
+};
+}());
+</script>
+
+
+ </body>
 </html>
